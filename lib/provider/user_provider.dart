@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:users/models/user_model.dart';
 
 class UserProvider with ChangeNotifier {
-  // function for api call
 
   List<User> users = [];
 
+  // function for api call
   Future<void> getUserData() async {
     try {
       Dio dio = Dio();
@@ -15,7 +15,7 @@ class UserProvider with ChangeNotifier {
           await dio.get('https://jsonplaceholder.typicode.com/users');
 
       var responseJson = response.data;
-      debugPrint(responseJson.toString());
+      print(responseJson.toString());
 
       if (response.statusCode == 200) {
         users =
